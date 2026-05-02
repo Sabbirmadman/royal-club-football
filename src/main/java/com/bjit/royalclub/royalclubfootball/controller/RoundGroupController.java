@@ -111,7 +111,7 @@ public class RoundGroupController {
         return buildSuccessResponse(HttpStatus.OK, FETCH_OK, matches);
     }
 
-    @PreAuthorize("hasAnyRole('ADMIN', 'SUPERADMIN', 'COORDINATOR')")
+    @PreAuthorize("hasAnyRole('ADMIN', 'SUPERADMIN')")
     @DeleteMapping("/{groupId}/matches")
     public ResponseEntity<Object> clearGroupMatches(@PathVariable Long groupId) {
         roundGroupService.clearGroupMatches(groupId);

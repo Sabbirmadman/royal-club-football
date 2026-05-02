@@ -33,7 +33,7 @@ public class TournamentPrizeController {
     /**
      * Create a new prize for a tournament (Admin only)
      */
-    @PreAuthorize("hasAnyRole('ADMIN', 'SUPERADMIN', 'COORDINATOR')")
+    @PreAuthorize("hasAnyRole('ADMIN')")
     @PostMapping
     public ResponseEntity<Object> createPrize(
             @PathVariable Long tournamentId,
@@ -46,7 +46,7 @@ public class TournamentPrizeController {
     /**
      * Update an existing prize (Admin only)
      */
-    @PreAuthorize("hasAnyRole('ADMIN', 'SUPERADMIN', 'COORDINATOR')")
+    @PreAuthorize("hasAnyRole('ADMIN')")
     @PutMapping("/{prizeId}")
     public ResponseEntity<Object> updatePrize(
             @PathVariable Long tournamentId,
@@ -60,7 +60,7 @@ public class TournamentPrizeController {
     /**
      * Delete a prize (Admin only)
      */
-    @PreAuthorize("hasAnyRole('ADMIN', 'SUPERADMIN', 'COORDINATOR')")
+    @PreAuthorize("hasAnyRole('ADMIN')")
     @DeleteMapping("/{prizeId}")
     public ResponseEntity<Object> deletePrize(
             @PathVariable Long tournamentId,

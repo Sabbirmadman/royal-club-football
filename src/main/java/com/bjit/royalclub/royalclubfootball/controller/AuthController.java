@@ -40,7 +40,7 @@ public class AuthController {
         return buildResponse(HttpStatus.OK, UPDATE_OK);
     }
 
-    @PreAuthorize("hasAnyRole('ADMIN', 'SUPERADMIN')")
+    @PreAuthorize("hasAnyRole('ADMIN')")
     @PutMapping("reset-password")
     public ResponseEntity<Object> resetPassword(@Valid @RequestBody ResetPasswordRequest resetPasswordRequest) {
         authService.resetPassword(resetPasswordRequest);

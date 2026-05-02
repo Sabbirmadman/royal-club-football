@@ -54,7 +54,7 @@ public class PlayerController {
         return buildSuccessResponse(HttpStatus.OK, FETCH_OK, player);
     }
 
-    @PreAuthorize("hasAnyRole('ADMIN', 'SUPERADMIN')")
+    @PreAuthorize("hasAnyRole('ADMIN')")
     @PutMapping("/{id}/status")
     public ResponseEntity<Object> getPlayerById(@PathVariable Long id, @RequestParam boolean active) {
         playerService.updatePlayerStatus(id, active);

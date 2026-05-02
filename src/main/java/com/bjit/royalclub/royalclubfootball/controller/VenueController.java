@@ -39,14 +39,14 @@ public class VenueController {
         return buildSuccessResponse(HttpStatus.OK, FETCH_OK, venueResponses);
     }
 
-    @PreAuthorize("hasAnyRole('ADMIN', 'SUPERADMIN')")
+    @PreAuthorize("hasAnyRole('ADMIN')")
     @PostMapping
     public ResponseEntity<Object> registerVenue(@Valid @RequestBody VenueRegistrationRequest venueRegistrationRequest) {
         venueService.registerVenue(venueRegistrationRequest);
         return ResponseBuilder.buildSuccessResponse(HttpStatus.CREATED, CREATE_OK);
     }
 
-    @PreAuthorize("hasAnyRole('ADMIN', 'SUPERADMIN')")
+    @PreAuthorize("hasAnyRole('ADMIN')")
     @PutMapping("/{id}")
     public ResponseEntity<Object> updateVenue(@PathVariable Long id,
                                               @Valid @RequestBody VenueRegistrationRequest venueRegistrationRequest) {
@@ -54,7 +54,7 @@ public class VenueController {
         return ResponseBuilder.buildSuccessResponse(HttpStatus.OK, UPDATE_OK, updatedVenueResponse);
     }
 
-    @PreAuthorize("hasAnyRole('ADMIN', 'SUPERADMIN')")
+    @PreAuthorize("hasAnyRole('ADMIN')")
     @PutMapping("/{id}/status")
     public ResponseEntity<Object> updateVenueStatus(@PathVariable Long id, @RequestParam boolean isActive) {
         venueService.updateStatus(id, isActive);

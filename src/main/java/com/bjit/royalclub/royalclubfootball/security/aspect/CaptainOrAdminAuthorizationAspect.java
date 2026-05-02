@@ -19,8 +19,7 @@ public class CaptainOrAdminAuthorizationAspect {
         var loggedInUser = SecurityUtil.getLoggedInUser();
         boolean isAdmin = loggedInUser.getAuthorities()
                 .stream()
-                .anyMatch(auth -> auth instanceof SimpleGrantedAuthority &&
-                        (auth.getAuthority().equals("ROLE_ADMIN") || auth.getAuthority().equals("ROLE_SUPERADMIN")));
+                .anyMatch(auth -> auth instanceof SimpleGrantedAuthority && auth.getAuthority().equals("ROLE_ADMIN"));
 
         if (!isAdmin) {
             throw new TournamentServiceException(

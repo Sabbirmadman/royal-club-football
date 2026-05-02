@@ -16,7 +16,7 @@ import static com.bjit.royalclub.royalclubfootball.util.ResponseBuilder.buildSuc
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("ac/collections")
-@PreAuthorize("hasAnyRole('ADMIN', 'SUPERADMIN')")
+@PreAuthorize("hasAnyRole('ADMIN')")
 public class AcCollectionController {
     private final AcCollectionService service;
 

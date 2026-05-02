@@ -21,14 +21,14 @@ public class TournamentRoundController {
 
     private final TournamentRoundService tournamentRoundService;
 
-    @PreAuthorize("hasAnyRole('ADMIN', 'SUPERADMIN', 'COORDINATOR')")
+    @PreAuthorize("hasAnyRole('ADMIN', 'SUPERADMIN')")
     @PostMapping
     public ResponseEntity<Object> createRound(@Valid @RequestBody TournamentRoundRequest request) {
         TournamentRoundResponse response = tournamentRoundService.createRound(request);
         return buildSuccessResponse(HttpStatus.CREATED, CREATE_OK, response);
     }
 
-    @PreAuthorize("hasAnyRole('ADMIN', 'SUPERADMIN', 'COORDINATOR')")
+    @PreAuthorize("hasAnyRole('ADMIN', 'SUPERADMIN')")
     @PutMapping("/{roundId}")
     public ResponseEntity<Object> updateRound(
             @PathVariable Long roundId,
@@ -37,7 +37,7 @@ public class TournamentRoundController {
         return buildSuccessResponse(HttpStatus.OK, UPDATE_OK, response);
     }
 
-    @PreAuthorize("hasAnyRole('ADMIN', 'SUPERADMIN', 'COORDINATOR')")
+    @PreAuthorize("hasAnyRole('ADMIN', 'SUPERADMIN')")
     @DeleteMapping("/{roundId}")
     public ResponseEntity<Object> deleteRound(@PathVariable Long roundId) {
         tournamentRoundService.deleteRound(roundId);
