@@ -21,6 +21,4 @@ public class TournamentRequest {
     private String tournamentType;
     private Integer groupCount;
 
-    // Auction
-    private boolean auctionMode;
 }

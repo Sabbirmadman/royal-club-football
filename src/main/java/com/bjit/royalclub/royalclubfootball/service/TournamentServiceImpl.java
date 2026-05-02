@@ -51,7 +51,6 @@ public class TournamentServiceImpl implements TournamentService {
                 .sportType(tournament.getSportType() != null ? tournament.getSportType().toString() : null)
                 .tournamentType(tournament.getTournamentType() != null ? tournament.getTournamentType().toString() : null)
                 .groupCount(tournament.getGroupCount())
-                .auctionMode(tournament.isAuctionMode())
                 .build();
     }
 
@@ -75,7 +74,6 @@ public class TournamentServiceImpl implements TournamentService {
                         com.bjit.royalclub.royalclubfootball.enums.TournamentType.valueOf(tournamentRequest.getTournamentType()) :
                         com.bjit.royalclub.royalclubfootball.enums.TournamentType.ROUND_ROBIN)
                 .groupCount(tournamentRequest.getGroupCount())
-                .auctionMode(tournamentRequest.isAuctionMode())
                 .build();
         Tournament savedTournament = tournamentRepository.save(tournament);
         return convertToDto(savedTournament);
@@ -140,7 +138,6 @@ public class TournamentServiceImpl implements TournamentService {
         if (tournamentUpdateRequest.getGroupCount() != null) {
             tournament.setGroupCount(tournamentUpdateRequest.getGroupCount());
         }
-        tournament.setAuctionMode(tournamentUpdateRequest.isAuctionMode());
         tournament = tournamentRepository.save(tournament);
         return convertToDto(tournament);
     }
